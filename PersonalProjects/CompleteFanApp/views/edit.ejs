@@ -1,0 +1,252 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Edit Job - Reference #<%= report.ref %></h1>
+    </div>
+    <form action="/reports/<%= report._id %>?_method=PUT" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Our Ref:</label>
+                <input type="text" class="form-control" name="report[ref]" value="<%= report.ref %>" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Date Of Report</label>
+                <input type="text" class="form-control" name="report[reportDate]" value="<%= report.reportDate %>" readonly required >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Company</label>
+                <input type="text" class="form-control" name="report[company]" value="<%= report.company %>" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Date Of Works</label>
+                <input type="text" class="form-control" name="report[worksDate]" value="<%= report.worksDate %>" required >
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <label>Change Machine Type</label>
+                    <select id="sel" name="report[machine]" class="form-control" onchange="populate(this.id, 'img')" required>
+                        <option value="<%= report.machine %>"><%= report.machine %></option>
+                        <option value="Belt Driven">Belt Driven</option>
+                        <option value="Arr 7">Arr 7</option>
+                        <option value="Coupling Driven">Coupling Driven</option>
+                        <option value="Direct Driven">Direct Driven</option>
+                        <option value="Plug Driven">Plug Driven</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img id="img" class="img-fluid" src="/images/<%= report.machine %>.jpg">
+        </div>
+        
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <label>Add/Change Second Machine Type</label>
+                    <select id="sel2" name="report[machine2]" class="form-control" onchange="populate(this.id, 'img2')">
+                        <option value="<%= report.machine2 %>"><%= report.machine2 %></option>
+                        <option value="Belt Driven">Belt Driven</option>
+                        <option value="Arr 7">Arr 7</option>
+                        <option value="Coupling Driven">Coupling Driven</option>
+                        <option value="Direct Driven">Direct Driven</option>
+                        <option value="Plug Driven">Plug Driven</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img id="img2" class="img-fluid" src="/images/<%= report.machine2 %>.jpg">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Fan Manufacture</label>
+                <input type="text" class="form-control" name="report[fanMake]" value="<%= report.fanMake %>" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Serial No.</label>
+                <input type="text" class="form-control" name="report[fanSerial]" value="<%= report.fanSerial %>" required >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Fan Size</label>
+                <input type="text" class="form-control" name="report[fanSize]" value="<%= report.fanSize %>" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Inverter Hz:</label>
+                <input type="text" class="form-control" name="report[inverterHz]" value="<%= report.inverterHz %>" required >
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class="table-responsive">
+            <table id="works" class="table table-bordered">
+                <col>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <tr>
+                    <td id="worktitle" colspan="11">Pre-Works</td>
+                </tr>
+                <tr class="rowhead">
+                    <th id="hz" rowspan="1">HZ</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Mtr Horizontal</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Mtr Vertical</th>
+                    <th class="tableheader" colspan="1" scope="col">Mtr Axial</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Fan Horizontal</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Fan Vertical</th>
+                    <th class="tableheader" colspan="1" scope="col">Fan Axial</th>
+                </tr>
+                <tr>
+                    <td rowspan="1"></td>
+                    <th scope="col">H1</th>
+                    <th scope="col">H2</th>
+                    <th scope="col">V1</th>
+                    <th scope="col">V2</th>
+                    <th scope="col">A</th>
+                    <th scope="col">H1</th>
+                    <th scope="col">H2</th>
+                    <th scope="col">V1</th>
+                    <th scope="col">V2</th>
+                    <th scope="col">A</th>
+                </tr>
+                <tr>
+                    <th scope="row">mm/s</th>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th scope="row">G's</th>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+    
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Pre-Works Comments</span>
+            </div>
+            <textarea class="form-control" aria-label="Pre-Works Comments" name="report[preWorkCom]" required><%= report.preWorkCom %></textarea>
+        </div>
+        
+        <div class="table-responsive">
+            <table id="works" class="table table-bordered">
+                <col>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <colgroup span="2"></colgroup>
+                <tr>
+                    <td id="worktitle" colspan="11">Post-Works</td>
+                </tr>
+                <tr class="rowhead">
+                    <th id="hz" rowspan="1">HZ</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Mtr Horizontal</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Mtr Vertical</th>
+                    <th class="tableheader" colspan="1" scope="col">Mtr Axial</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Fan Horizontal</th>
+                    <th class="tableheader" colspan="2" scope="colgroup">Fan Vertical</th>
+                    <th class="tableheader" colspan="1" scope="col">Fan Axial</th>
+                </tr>
+                <tr>
+                    <td rowspan="1"></td>
+                    <th scope="col">H1</th>
+                    <th scope="col">H2</th>
+                    <th scope="col">V1</th>
+                    <th scope="col">V2</th>
+                    <th scope="col">A</th>
+                    <th scope="col">H1</th>
+                    <th scope="col">H2</th>
+                    <th scope="col">V1</th>
+                    <th scope="col">V2</th>
+                    <th scope="col">A</th>
+                </tr>
+                <tr>
+                    <th scope="row">mm/s</th>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th scope="row">G's</th>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+    
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Post-Works Comments</span>
+            </div>
+            <textarea class="form-control" aria-label="Pre-Works Comments" name="report[postWorkCom]" required><%= report.postWorkCom %></textarea>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6 ">
+                <label>File</label>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <input class="btn btn-success" type="submit">
+    </form>
+</div>
+
+
+<% include ./partials/footer %>

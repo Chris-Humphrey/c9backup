@@ -1,0 +1,63 @@
+        <p class="mt-5 mb-3 text-muted">© 2019 Complete Fan Maintenance</p>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+        <!--Select Machine with Image-->
+        <script type="text/javascript">
+            function populate(sel, img){
+                var sel= document.getElementById(sel);
+                var img= document.getElementById(img);
+                var mac = document.getElementById("machine-hidden");
+                if(sel.value == ""){
+                    img.setAttribute('src', '/images/Blank.jpg')
+                } else if(sel.value == "Belt Driven"){
+                    img.setAttribute('src', '/images/Belt Driven.jpg')
+                } else if(sel.value == "Arr 7"){
+                    img.setAttribute('src', '/images/Arr 7.jpg')
+                } else if(sel.value == "Coupling Driven"){
+                    img.setAttribute('src', '/images/Coupling Driven.jpg')
+                } else if(sel.value == "Direct Driven"){
+                    img.setAttribute('src', '/images/Direct Driven.jpg')
+                } else if(sel.value == "Plug Driven"){
+                    img.setAttribute('src', '/images/Plug Driven.jpg')
+                }
+                mac.style.display = "block";
+            }
+        </script>        
+        <script type="text/javascript">
+            function populate2(sel2, img2){
+                var sel2= document.getElementById(sel2);
+                var img2= document.getElementById(img2);
+                if(sel2.value == ""){
+                    img.setAttribute('src', '/images/Blank.jpg')
+                } else if(sel2.value == "Belt Driven"){
+                    img.setAttribute('src', '/images/Belt Driven.jpg')
+                } else if(sel2.value == "Arr 7"){
+                    img.setAttribute('src', '/images/Arr 7.jpg')
+                } else if(sel2.value == "Coupling Driven"){
+                    img.setAttribute('src', '/images/Coupling Driven.jpg')
+                } else if(sel2.value == "Direct Driven"){
+                    img.setAttribute('src', '/images/Direct Driven.jpg')
+                } else if(sel2.value == "Plug Driven"){
+                    img.setAttribute('src', '/images/Plug Driven.jpg')
+                }
+            }
+        </script>
+        <!--Set Today's Date-->
+        <script type="text/javascript">
+            // Get Today's Date
+            var date = new Date();
+            
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            
+            var today = year + "-" + month + "-" + day;
+            document.getElementById('theDate').value = today;
+        </script>
+    </body>
+</html>

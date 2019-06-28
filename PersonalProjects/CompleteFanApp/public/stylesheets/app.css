@@ -1,0 +1,87 @@
+i.icon{
+    font-size: 2em;
+}
+
+.container.main {
+    margin-top: 7em;
+    width: auto;
+    height: auto;
+}
+
+.content {
+    display: inline;
+}
+
+#delete {
+    display: inline;
+}
+
+.line1{
+    display: inline;
+}
+
+#machine-hidden {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table thead th {
+    border-bottom: 3px solid #dee2e6;
+    font-size: 1.5em;
+}
+
+.table tbody {
+    font-size: 1.1em;
+}
+
+.comments {
+    position: relative;
+    top: 50%;
+    transform: translateY(-80%); 
+}
+
+#works {
+    text-align: center;
+    border: 3px solid black;
+    /*width: 800px;*/
+}
+
+#worktitle {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.rowhead {
+    height: 4em;
+}
+
+.input-group {
+    padding-bottom: 15px;
+}
+
+#delete {
+    display: inline;
+}
+
+.grid {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    border-bottom: 2px solid black;
+    display: block;
+    margin-bottom: 15px;
+}
+
+img {
+    max-height: 400px;
+}
+
+label {
+    font-weight: bold;
+}

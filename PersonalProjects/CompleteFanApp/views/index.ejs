@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+<!--took out "text" from container class-->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">All Reports</h1>
+        <div class="d-flex justify-content-center">
+            <p>
+                <a class="btn btn-primary btn-lg" href="/reports/new">Add New Job</a>
+            </p>
+        </div>
+    </div>
+    
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Reference #</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Date of Report</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% reports.forEach(function(report){ %>
+            <tr>
+                <th scope="row"><%= report.ref %></th>
+                <td><%= report.company %></td>
+                <td><%= report.reportDate.toDateString() %></td>
+                <td>
+                    <a role="button" class="btn btn-success" href="/reports/<%= report._id %>">
+                        View Job
+                    </a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+</div>
+
+
+<% include ./partials/footer %>

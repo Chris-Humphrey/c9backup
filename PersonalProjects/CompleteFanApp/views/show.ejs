@@ -1,0 +1,59 @@
+<% include ./partials/header %>
+
+<!--took out "text" from container class-->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Job Reference #<%= report.ref %></h1>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Our Ref:</label>
+            <input type="text" class="form-control" name="report[ref]" value="<%= report.ref %>" readonly>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Company</label>
+            <input type="text" class="form-control" value="<%= report.company %>" readonly>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Date Of Report</label>
+            <input type="text" class="form-control" name="report[reportDate]" value="<%= report.reportDate %>" readonly >
+        </div>
+        <div class="form-group col-md-6">
+            <label>Date Of Works</label>
+            <input type="text" class="form-control" name="report[worksDate]" value="<%= report.worksDate %>" readonly >
+        </div>
+    </div>
+        <div class="form-row">
+            <div class="col-xs-3">
+                <label>Machine Type</label>
+                <input type="text" class="form-control" value="<%= report.machine %>" readonly>
+            </div>
+        </div>
+
+    <div>
+        <img class="img-fluid" src="/images/<%= report.machine %>.jpg">
+    </div>
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Pre-Works Comments</span>
+        </div>
+        <textarea class="form-control" aria-label="Pre-Works Comments" readonly><%= report.preWorkCom %></textarea>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Post-Works Comments</span>
+        </div>
+        <textarea class="form-control" aria-label="Post-Works Comments" readonly><%= report.postWorkCom %></textarea>
+    </div>
+    <br>
+    <a class="btn btn-warning" href="/reports/<%= report._id %>/edit">Edit</a>
+    <form id="delete" action="/reports/<%= report._id %>?_method=DELETE" method="POST">
+        <input class="btn btn-danger" value="Delete" type="submit">
+    </form>
+</div>
+
+
+<% include ./partials/footer %>

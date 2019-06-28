@@ -1,0 +1,14 @@
+/*.carousel-inner > .item > img, .carousel-inner > .item > a > img {*/
+/*    width: 100%;*/
+/*}*/
+
+.carousel {
+  width:1280px;
+  height:720px;
+}
+
+.lead {
+    margin-left: 150px;
+    margin-right: 150px;
+    font-size: 1.5em;
+}
